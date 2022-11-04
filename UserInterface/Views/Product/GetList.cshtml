@@ -1,0 +1,31 @@
+﻿@model List<Product>
+<h3 class="text-center">Ürün Listeleme Sayfası</h3>
+<a class="btn btn-primary" style="float:right" asp-controller="Product" asp-action="Create">Yeni Ekle</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>İsmi</th>
+            <th>Ürün Açıklaması</th>
+            <th>Kategorisi</th>
+            <th>Stok Sayısı</th>
+            <th>Aksiyonlar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+        <tr>
+            <th>@(i+1)</th>
+            <td>@Model[i].ProductName</td>
+            <td>@Model[i].Description</td>
+            <td>@Model[i].Category</td>
+            <td>@Model[i].StockNumber</td>
+            <td>
+                <a class="big-icon" asp-controller="Product" asp-action="Edit" asp-route-id="@Model[i].ID"><i class="bi bi-pencil-square"></i></a>
+                <a class="big-icon margin-icon" asp-controller="Product" asp-action="Delete" asp-route-id="@Model[i].ID"><i class="bi bi-x-circle-fill"></i></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

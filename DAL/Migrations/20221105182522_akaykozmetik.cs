@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAL.Migrations
 {
-    public partial class AkayKozmetik : Migration
+    public partial class akaykozmetik : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -32,6 +32,8 @@ namespace DAL.Migrations
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ExpirationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Quantity = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StockNumber = table.Column<int>(type: "int", nullable: false),
                     CategoryID = table.Column<int>(type: "int", nullable: false),

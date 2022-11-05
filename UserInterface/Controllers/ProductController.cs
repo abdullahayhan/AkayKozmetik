@@ -22,6 +22,11 @@ namespace UserInterface.Controllers
             List<Product> products = repoProduct.GetProducts();
             return View(products);
         }
+        public IActionResult UserList()
+        {
+            List<Product> products = repoProduct.GetProducts();
+            return View(products);
+        }
         public IActionResult Create()
         {
             List<Category> categories = repoCategory.GetActives();

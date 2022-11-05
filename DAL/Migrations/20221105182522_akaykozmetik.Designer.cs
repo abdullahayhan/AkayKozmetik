@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20221103115944_AkayKozmetik")]
-    partial class AkayKozmetik
+    [Migration("20221105182522_akaykozmetik")]
+    partial class akaykozmetik
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -64,8 +64,14 @@ namespace DAL.Migrations
                     b.Property<DateTime>("ExpirationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<string>("ProductName")
                         .IsRequired()

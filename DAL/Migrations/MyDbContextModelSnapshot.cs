@@ -62,8 +62,14 @@ namespace DAL.Migrations
                     b.Property<DateTime>("ExpirationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<string>("ProductName")
                         .IsRequired()

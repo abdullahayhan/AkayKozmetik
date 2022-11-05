@@ -10,16 +10,16 @@ namespace UserInterface.Controllers
 {
     public class ProductController : Controller
     {
-        IRepository<Product> repoProduct;
+        IProductRepository repoProduct;
         IRepository<Category> repoCategory;
-        public ProductController(IRepository<Product> repoProduct, IRepository<Category> repoCategory)
+        public ProductController(IProductRepository repoProduct, IRepository<Category> repoCategory)
         {
             this.repoCategory = repoCategory;
             this.repoProduct = repoProduct;
         }
         public IActionResult GetList()
         {
-            List<Product> products = repoProduct.GetActives();
+            List<Product> products = repoProduct.GetProducts();
             return View(products);
         }
         public IActionResult Create()
@@ -49,7 +49,7 @@ namespace UserInterface.Controllers
 
         public IActionResult Delete(int id)
         {
-            repoCategory.Delete(id);
+            repoProduct.Delete(id);
             return RedirectToAction("GetList");
         }
     }

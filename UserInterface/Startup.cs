@@ -1,4 +1,5 @@
 using BLL.RepositoryPattern.Base_Abstract_;
+using BLL.RepositoryPattern.Concrete;
 using BLL.RepositoryPattern.Interfaces;
 using DAL.Context;
 using Microsoft.AspNetCore.Builder;
@@ -25,7 +26,7 @@ namespace UserInterface
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IRepository<Product>, Repository<Product>>();
+            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IRepository<Category>, Repository<Category>>();
             services.AddControllersWithViews();
             services.AddDbContext<MyDbContext>(options=>options.UseSqlServer(configuration["ConnectionStrings:Mssql"]));

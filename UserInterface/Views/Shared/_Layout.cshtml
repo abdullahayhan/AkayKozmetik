@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>W3.CSS Template</title>
+    <title>AKAY KOZMETİK</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -32,11 +32,13 @@
             <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
             <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
             <a asp-controller="Product" asp-action="GetList" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Ürün Listesi</a>
+            <a asp-controller="Category" asp-action="GetList" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Kategori Listesi</a>
         </div>
 
         <!-- Navbar on small screens -->
         <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
             <a asp-controller="Product" asp-action="GetList" class="w3-bar-item w3-button w3-padding-large">Ürün Listesi</a>
+            <a asp-controller="Category" asp-action="GetList" class="w3-bar-item w3-button w3-padding-large">Kategori Listesi</a>
         </div>
     </div>
     

@@ -1,0 +1,10 @@
+﻿@model Category
+
+<h3 class="text-center">Kategori Güncelleme Sayfası</h3>
+<form method="post" asp-controller="Category" asp-action="Edit">
+    <div class="mb-3">
+        <label class="form-label" asp-for="CategoryName">İsim</label>
+        <input type="text" class="form-control" asp-for="CategoryName" />
+    </div>
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+</form>

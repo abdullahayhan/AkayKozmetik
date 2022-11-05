@@ -19,7 +19,7 @@
             <th>@(i+1)</th>
             <td>@Model[i].ProductName</td>
             <td>@Model[i].Description</td>
-            <td>@Model[i].Category</td>
+            <td>@Model[i].Category.CategoryName</td>
             <td>@Model[i].StockNumber</td>
             <td>
                 <a class="big-icon" asp-controller="Product" asp-action="Edit" asp-route-id="@Model[i].ID"><i class="bi bi-pencil-square"></i></a>

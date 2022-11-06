@@ -11,6 +11,7 @@ namespace MODEL.Entities
     public class Product : BaseEntity
     {
         public string ProductName { get; set; }
+        public string SmallDescp { get; set; }
         public string Description { get; set; }
         public DateTime ExpirationDate { get; set; }
         public double Price { get; set; }

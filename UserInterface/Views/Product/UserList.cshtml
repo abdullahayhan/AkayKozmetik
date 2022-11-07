@@ -36,7 +36,7 @@
     }
     .card-product-grid .img-wrap {
         border-radius: 0.2rem 0.2rem 0 0;
-        height: 220px;
+        height: 250px;
     }
     .card .img-wrap {
         overflow: hidden;
@@ -46,7 +46,7 @@
     }
     .card-product-grid .img-wrap {
         border-radius: 0.2rem 0.2rem 0 0;
-        height: 228px;
+        height: 250px;
         padding: 16px;
     }
     [class*='card-product'] .img-wrap img {
@@ -126,27 +126,20 @@
     <div class="row" style="padding:30px">
         @foreach (Product item in Model)
         {
-            <div class="col-md-4">
+            <div class="col-md-4" style="max-width:25%">
                 <figure class="card card-product-grid card-lg">
-                    <a href="#" class="img-wrap" data-abc="true"><img src=@item.ImageUrl></a>
+                    <a href="#" class="img-wrap" data-abc="true"><img src="@item.ImageUrl"></a>
                     <figcaption class="info-wrap">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-8" style="flex: 0 50%">
                                 <a href="#" class="title" data-abc="true">@item.ProductName - @item.Quantity</a>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="rating text-right">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                             </div>
                         </div>
                     </figcaption>
                     <div class="bottom-wrap">
-                        <a href="#" class="btn  btn-primary float-right" data-abc="true"> Buy now </a>
+                        <a href="#" class="btn  btn-primary float-right" data-abc="true"> Ürüne Git </a>
                         <div class="price-wrap">
-                            <span class="price h5">@item.Price ₺</span> <br> <small class="text-success">Free shipping</small>
+                            <span class="price h5">@item.Price ₺</span>
                         </div>
                     </div>
                 </figure>

@@ -81,17 +81,18 @@
                             <a class="nav-link" asp-controller="Product" asp-action="UserList">Tüm Ürünler</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">İletişim</a>
+                            <a class="nav-link" asp-action="Contact" asp-controller="Home">İletişim</a>
+                            <!--  <a href="https://wa.me/905351064720" target="_blank"><i class="fa fa-whatsapp"></i> WhatsApp</a>-->
                         </li>
-                    </ul>
-                    <form class="d-flex  searchitem">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <i class="fa fa-search"></i>
-                    </form>
+                        </ul>
+                        <form class="d-flex  searchitem">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <i class="fa fa-search"></i>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </nav>
-        @RenderBody()
-    </div>
-</body>
-</html>
+            </nav>
+            @RenderBody()
+        </div>
+    </body>
+    </html>

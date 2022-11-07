@@ -22,5 +22,10 @@ namespace UserInterface.Controllers
             List<Category> categories = repoCategory.GetActives();
             return View(categories);
         }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
     }
 }

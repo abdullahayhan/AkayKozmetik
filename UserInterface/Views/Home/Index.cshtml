@@ -1,1 +1,41 @@
-﻿<h1 style="padding-top: 50px;">Proje Çalışıyor.</h1>
+﻿@{
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+@model List<Category>
+<style>
+    .card {
+        height: 130px;
+        overflow: hidden;
+        border: none;
+        border-radius: 15px
+    }
+    .btn {
+        height: 35px;
+        width: 170px;
+        border: none;
+        border-radius: 20px;
+        background-color: #633a9c;
+        font-size: 14px;
+        font-weight: 500
+    }
+</style>
+
+    <div class="d-flex justify-content-center align-items-center mt-5">
+        <button class="btn btn-dark">KATEGORİLERİMİZ</button>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+        <span class="text text-center">En İyi Ürünü<br> Uygun Fiyata Bulun</span>
+    </div>
+    <div class="row mt-2 g-4">
+        @foreach (Category item in Model)
+        {
+            <div class="col-md-3">
+                <div class="card p-2">
+                    <div class="d-flex justify-content-between align-items-center p-2">
+                       <div class="flex-column lh-1 imagename"> <a href="#"><span>@item.CategoryName</span></a></div>
+                        <div> <img src=@item.ImageUrl height="100" width="100" /> </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>

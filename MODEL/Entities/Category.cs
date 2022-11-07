@@ -10,6 +10,7 @@ namespace MODEL.Entities
     public class Category : BaseEntity
     {
         public string CategoryName { get; set; }
+        public string ImageUrl { get; set; }
 
         // Relation Prop
         public List<Product> Products { get; set; }

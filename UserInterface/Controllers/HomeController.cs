@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BLL.RepositoryPattern.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using MODEL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,17 @@ namespace UserInterface.Controllers
 {
     public class HomeController : Controller
     {
+        IProductRepository repoProduct;
+        IRepository<Category> repoCategory;
+        public HomeController(IProductRepository repoProduct, IRepository<Category> repoCategory)
+        {
+            this.repoCategory = repoCategory;
+            this.repoProduct = repoProduct;
+        }
         public IActionResult Index()
         {
-            return View();
+            List<Category> categories = repoCategory.GetActives();
+            return View(categories);
         }
     }
 }

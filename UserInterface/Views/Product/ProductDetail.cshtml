@@ -1,0 +1,188 @@
+﻿@model (Product product, List<Product> products)
+
+@{ 
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<style>
+        .text-bold {
+            font-weight: 800;
+        }
+
+        text-color {
+            color: #0093c4;
+        }
+
+        /* Main image - left */
+        .main-img img {
+            width: 100%;
+        }
+
+        /* Preview images */
+        .previews img {
+            width: 100%;
+            height: 140px;
+        }
+
+        .main-description .category {
+            text-transform: uppercase;
+            color: #0093c4;
+        }
+
+        .main-description .product-title {
+            font-size: 2.5rem;
+        }
+
+        .old-price-discount {
+            font-weight: 600;
+        }
+
+        .new-price {
+            font-size: 2rem;
+        }
+
+        .details-title {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #757575;
+        }
+
+        .buttons .block {
+            margin-right: 10px;
+        }
+
+        .quantity input {
+            border-radius: 0;
+            height: 40px;
+
+        }
+
+
+        .custom-btn {
+            text-transform: capitalize;
+            background-color: #0093c4;
+            color: white;
+            width: 150px;
+            height: 40px;
+            border-radius: 0;
+        }
+
+        .custom-btn:hover {
+            background-color: #0093c4 !important;
+            font-size: 18px;
+            color: white !important;
+        }
+
+        .similar-product img {
+            height: 400px;
+        }
+
+        .similar-product {
+            text-align: left;
+        }
+
+        .similar-product .title {
+            margin: 17px 0px 4px 0px;
+        }
+
+        .similar-product .price {
+            font-weight: bold;
+        }
+    .float {
+        background-color: #25d366;
+        color: #FFF;
+        border-radius: 20px;
+        text-align: center;
+        font-size: 30px;
+        text-decoration: none;
+        box-shadow: 1px 10px 2px #999;
+        z-index: 100;
+        padding-right: 5px;
+        padding-left: 8px;
+        padding-bottom: 3px;
+        padding-top: 3px;
+    }
+</style>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="main-img">
+                    <img class="img-fluid" src=@Model.product.ImageUrl alt="ProductS">
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="main-description px-2">
+                    <div class="category text-bold">
+                        Kategori : @Model.product.Category.CategoryName
+                    </div>
+                    <div class="product-title text-bold my-3">
+                        @Model.product.ProductName - @Model.product.Quantity
+                    </div>
+
+
+                    <div class="price-area my-4">
+                        <p class="old-price mb-1">
+                            <del></del>
+                            <span class="old-price-discount text-danger"></span>
+                        </p>
+                        <p class="new-price text-bold mb-1">@Model.product.Price ₺</p>
+                        <p class="text-secondary mb-1">Sipariş İçin Whatsapp Üzerinden İletişime Geçin!</p>
+
+                    </div>
+
+
+                    <div class="buttons d-flex my-5">
+                        <div class="block">
+                            <a href="https://wa.me/905351064720" class="float" target="_blank">
+                                Satın Almak İçin Bize Ulaşın
+                                <i class="fa fa-whatsapp my-float"></i>
+                            </a>
+                        </div>
+                        <div class="block quantity">
+                            <input type="number" class="form-control" id="cart_quantity" value="1" min="0" max=@Model.product.StockNumber placeholder="Enter email" name="cart_quantity">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-details my-4">
+                    <p class="details-title text-color mb-1">Ürün Detayı</p>
+                    <p class="description">
+                       @Model.product.Description
+                    </p>
+                </div>
+                <div class="product-details my-4">
+                    <p class="details-title text-color mb-2">Ürün Bilgileri</p>
+                    <ul>
+                        <li>@Model.product.SmallDescp</li>
+                        <li>Stok Adeti : @Model.product.StockNumber</li>
+                        <li>Son Kullanma Tarihi : @Model.product.ExpirationDate</li>
+                        <li>Miktar : @Model.product.Quantity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container similar-products my-4">
+        <hr>
+        <p class="category text-bold" style="font-size:35px">İlgili Ürünler</p>
+        <div class="row">
+            @foreach (Product item in Model.products)
+            {
+            <div class="col-md-3" style="width:45px">
+                <a asp-action="ProductDetail" asp-controller="Product" asp-route-id=@item.ID>
+                    <div class="similar-product">
+                        <img class="w-100" src=@item.ImageUrl alt="Preview">
+                        <p class="title">@item.ProductName - @item.Quantity</p>
+                        <p class="price">@item.Price ₺</p>
+                    </div>
+                </a>
+            </div>
+                    }
+                </div>
+            
+        </div>
+

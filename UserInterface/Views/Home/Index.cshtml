@@ -32,7 +32,7 @@
             <div class="col-md-3">
                 <div class="card p-2">
                     <div class="d-flex justify-content-between align-items-center p-2">
-                       <div class="flex-column lh-1 imagename"> <a href="#"><span>@item.CategoryName</span></a></div>
+                       <div class="flex-column lh-1 imagename"> <a asp-action="ProductByCategoryId" asp-controller="Product" asp-route-id=@item.ID><span>@item.CategoryName</span></a></div>
                         <div> <img src=@item.ImageUrl height="100" width="100" /> </div>
                     </div>
                 </div>

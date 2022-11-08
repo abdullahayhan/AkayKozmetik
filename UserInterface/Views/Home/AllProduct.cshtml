@@ -128,16 +128,16 @@
         {
             <div class="col-md-4" style="max-width:25%">
                 <figure class="card card-product-grid card-lg">
-                    <a href="#" class="img-wrap" data-abc="true"><img src="@item.ImageUrl"></a>
+                    <a asp-action="ProductDetail" asp-controller="Product" asp-route-id=@item.ID class="img-wrap" data-abc="true"><img src="@item.ImageUrl"></a>
                     <figcaption class="info-wrap">
                         <div class="row">
                             <div class="col-md-8" style="flex: 0 50%">
-                                <a href="#" class="title" data-abc="true">@item.ProductName - @item.Quantity</a>
+                                <a asp-action="ProductDetail" asp-controller="Product" asp-route-id=@item.ID class="title" data-abc="true">@item.ProductName - @item.Quantity</a>
                             </div>
                         </div>
                     </figcaption>
                     <div class="bottom-wrap">
-                        <a href="#" class="btn  btn-primary float-right" data-abc="true"> Ürüne Git </a>
+                        <a asp-action="ProductDetail" asp-controller="Product" asp-route-id=@item.ID class="btn  btn-primary float-right" data-abc="true"> Ürüne Git </a>
                         <div class="price-wrap">
                             <span class="price h5">@item.Price ₺</span>
                         </div>

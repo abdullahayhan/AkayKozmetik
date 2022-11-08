@@ -22,6 +22,11 @@ namespace UserInterface.Controllers
             List<Category> categories = repoCategory.GetActives();
             return View(categories);
         }
+        public IActionResult AllProduct()
+        {
+            List<Product> products = repoProduct.GetProducts();
+            return View(products);
+        }
 
         public IActionResult Contact()
         {

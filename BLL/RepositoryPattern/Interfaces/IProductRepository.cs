@@ -10,5 +10,6 @@ namespace BLL.RepositoryPattern.Interfaces
     public interface IProductRepository : IRepository<Product>
     {
         List<Product> GetProducts();
+        List<Product> GetProductByCategory(string name, string ProductName);
     }
 }

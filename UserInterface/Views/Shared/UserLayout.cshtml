@@ -13,7 +13,7 @@
         }
 
         body {
-            background-color: #f2eae3
+            background-color: whitesmoke;
         }
 
         .name {
@@ -75,24 +75,39 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Hakkımızda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Product" asp-action="UserList">Tüm Ürünler</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="AllProduct">Tüm Ürünler</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-action="Contact" asp-controller="Home">İletişim</a>
-                            <!--  <a href="https://wa.me/905351064720" target="_blank"><i class="fa fa-whatsapp"></i> WhatsApp</a>-->
                         </li>
-                        </ul>
-                        <form class="d-flex  searchitem">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <i class="fa fa-search"></i>
-                        </form>
-                    </div>
+                    </ul>
+                    <form class="d-flex  searchitem">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <i class="fa fa-search"></i>
+                    </form>
                 </div>
-            </nav>
-            @RenderBody()
+            </div>
+        </nav>
+        @RenderBody()
+    </div>
+    <div class="footer mt-5" style="margin-top: 20rem!important">
+        <div class="container1">
+            <footer class="py-3 my-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item">
+                        <a class="navbar-brand name" asp-controller="Home" asp-action="Index">Akay Kozmetik</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-muted" asp-controller="Home" asp-action="AllProduct">Tüm Ürünler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-muted" asp-action="Contact" asp-controller="Home">İletişim</a>
+                    </li>
+                </ul>
+                <p class="text-center text-muted">© @DateTime.Now.Year Akay Kozmetik</p>
+            </footer>
         </div>
-    </body>
+
+    </div>
+</body>
     </html>

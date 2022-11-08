@@ -22,11 +22,6 @@ namespace UserInterface.Controllers
             List<Product> products = repoProduct.GetProducts();
             return View(products);
         }
-        public IActionResult UserList()
-        {
-            List<Product> products = repoProduct.GetProducts();
-            return View(products);
-        }
         public IActionResult Create()
         {
             List<Category> categories = repoCategory.GetActives();
@@ -51,11 +46,22 @@ namespace UserInterface.Controllers
             repoProduct.Update(product);
             return RedirectToAction("GetList");
         }
-
         public IActionResult Delete(int id)
         {
             repoProduct.Delete(id);
             return RedirectToAction("GetList");
+        }
+        public IActionResult ProductDetail(int id)
+        {
+            Product product = repoProduct.GetProducts().Find(x=>x.ID == id);
+            List<Product> productsByCategory = repoProduct.GetProductByCategory(product.Category.CategoryName,product.ProductName);
+            return View((product,productsByCategory));
+        }
+        public IActionResult ProductByCategoryId(int id)
+        {
+            Category category = repoCategory.GetById(id);
+            List<Product> productsByCategory = repoProduct.GetProductByCategory(category.CategoryName,null);
+            return View("~/Views/Home/AllProduct.cshtml", productsByCategory);
         }
     }
 }

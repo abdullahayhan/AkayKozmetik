@@ -63,6 +63,12 @@
             font-weight: bold
         }
     </style>
+
+    <script type="text/javascript">
+    function ShowConfirm() {
+        return confirm("Admin Sayfası Sadece Kurucu İçindir Devam Etmek İstediğinize Emin Misiniz?");
+    };
+    </script>
 </head>
 <body>
     <div class="container">
@@ -104,7 +110,7 @@
                         <a class="nav-link px-2 text-muted" asp-action="Contact" asp-controller="Home">İletişim</a>
                     </li>
                     <li>                
-                        <a class="nav-link px-2 text-muted" asp-action="LoginAsAdmin" asp-controller="Home">
+                        <a onclick="return ShowConfirm();" class="nav-link px-2 text-muted" asp-action="LoginAsAdmin" asp-controller="Home">
                             Admin Girişi
                         </a>
                     </li>

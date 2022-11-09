@@ -27,8 +27,9 @@ namespace UserInterface.Controllers
         public IActionResult ProductByCategoryId(int id)
         {
             Category category = repoCategory.GetById(id);
+            List<Category> categories = repoCategory.GetActives();
             List<Product> productsByCategory = repoProduct.GetProductByCategory(category.CategoryName,null);
-            return View("~/Views/Home/AllProduct.cshtml", productsByCategory);
+            return View("~/Views/Home/AllProduct.cshtml", (productsByCategory,categories));
         }
        
     }

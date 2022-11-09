@@ -29,8 +29,9 @@ namespace UserInterface.Controllers
         }
         public IActionResult AllProduct()
         {
+            List<Category> categories = repoCategory.GetActives();
             List<Product> products = repoProduct.GetProducts();
-            return View(products);
+            return View((products, categories));
         }
 
         public IActionResult Contact()
@@ -72,6 +73,11 @@ namespace UserInterface.Controllers
                     }
                 }
             }
+            return View();
+        }
+
+        public IActionResult Deneme()
+        {
             return View();
         }
     }

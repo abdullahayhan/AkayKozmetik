@@ -1,6 +1,4 @@
-﻿@{
-    Layout = "~/Views/Shared/UserLayout.cshtml";
-}
+﻿
 @model List<Product>
 
 <style>
@@ -121,9 +119,10 @@
     .fa {
         color: #FF5722;
     }
-</style>
 
+</style>
     <div class="row" style="padding:30px">
+
         @foreach (Product item in Model)
         {
             <div class="col-md-4" style="max-width:25%">

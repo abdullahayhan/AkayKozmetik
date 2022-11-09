@@ -12,6 +12,7 @@ namespace BLL.RepositoryPattern.Interfaces
     {
         List<T> GetActives();
         T GetById(int id);
+        T Default(Expression<Func<T, bool>> exp);
         void Add(T item);
         void Update(T item);
         void Delete(int id);

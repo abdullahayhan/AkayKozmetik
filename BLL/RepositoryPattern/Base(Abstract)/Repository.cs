@@ -66,5 +66,9 @@ namespace BLL.RepositoryPattern.Base_Abstract_
             table.Update(item);
             Save();
         }
+        public T Default(Expression<Func<T, bool>> exp)
+        {
+            return table.FirstOrDefault(exp); // table içinde arama yap ve ilk bulduğun veriye bana dön demek.
+        }
     }
 }

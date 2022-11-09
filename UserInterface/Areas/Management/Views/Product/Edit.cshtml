@@ -1,7 +1,8 @@
 ﻿@model (Product product, List<Category> categories)
 
-<h3 class="text-center">Yeni Ürün Ekleme Sayfası</h3>
-<form method="post" asp-controller="Product" asp-action="Create">
+<h3 class="text-center">Ürün Güncelleme Sayfası</h3>
+<form method="post" asp-area="Management" asp-controller="Product" asp-action="Edit">
+    <input asp-for="product.ID" type="hidden" />
     <div class="mb-3">
         <label class="form-label" asp-for="product.ProductName">Ürün İsmi</label>
         <input type="text" class="form-control" asp-for="product.ProductName" />
@@ -38,5 +39,5 @@
         <label class="form-label" asp-for="product.CategoryID">Kategori</label>
         <select type="text" class="form-control" asp-for="product.CategoryID" asp-items="@(new SelectList(@Model.categories,"ID","CategoryName"))"></select>
     </div>
-    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <button type="submit" class="btn btn-primary">Güncelle</button>
 </form>

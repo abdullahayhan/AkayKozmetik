@@ -46,7 +46,7 @@
             position: relative
         }
 
-        .searchitem i {
+            .searchitem i {
                 position: absolute;
                 right: 18px;
                 top: 10px;
@@ -79,7 +79,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-action="Contact" asp-controller="Home">İletişim</a>
-                        </li>
+                        </li> 
                     </ul>
                     <form class="d-flex  searchitem">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -102,6 +102,11 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link px-2 text-muted" asp-action="Contact" asp-controller="Home">İletişim</a>
+                    </li>
+                    <li>                
+                        <a class="nav-link px-2 text-muted" asp-action="LoginAsAdmin" asp-controller="Home">
+                            Admin Girişi
+                        </a>
                     </li>
                 </ul>
                 <p class="text-center text-muted">© @DateTime.Now.Year Akay Kozmetik</p>

@@ -31,7 +31,7 @@ namespace UserInterface.Controllers
         {
             List<Category> categories = repoCategory.GetActives();
             List<Product> products = repoProduct.GetProducts();
-            return View((products, categories));
+            return View((products, categories,products));
         }
 
         public IActionResult Contact()
@@ -76,9 +76,18 @@ namespace UserInterface.Controllers
             return View();
         }
 
-        public IActionResult Deneme()
+
+        public IActionResult Search()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Search(string nameToFind)
+        {
+            List<Product> products = repoProduct.GetProducts()
+                .Where(x => x.ProductName.Contains(nameToFind) || x.Category.CategoryName.Contains(nameToFind)).ToList();
+            return View(products);
         }
     }
 }

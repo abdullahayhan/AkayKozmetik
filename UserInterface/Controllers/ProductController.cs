@@ -29,7 +29,8 @@ namespace UserInterface.Controllers
             Category category = repoCategory.GetById(id);
             List<Category> categories = repoCategory.GetActives();
             List<Product> productsByCategory = repoProduct.GetProductByCategory(category.CategoryName,null);
-            return View("~/Views/Home/AllProduct.cshtml", (productsByCategory,categories));
+            List<Product> products = repoProduct.GetProducts();
+            return View("~/Views/Home/AllProduct.cshtml", (productsByCategory,categories,products));
         }
        
     }

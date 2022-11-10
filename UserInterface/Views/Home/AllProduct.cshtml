@@ -1,10 +1,6 @@
-﻿@model (List<Product> products, List<Category> categories)
+﻿@model (List<Product> products, List<Category> categories, List<Product> products_)
 
 <style>
-
-    a {
-        text-decoration: none !important;
-    }
 
     .card-product-list, .card-product-grid {
         margin-bottom: 0;
@@ -129,21 +125,13 @@
 
     .btn-primary {
         color: #fff;
-        background-color: #3167eb;
+        background-color: #67971f;
         border-color: #3167eb;
     }
 
     .fa {
         color: #FF5722;
     }
-
-
-
-
-
-
-
-
 
 
     .col-lg-3 .btn.btn-primary {
@@ -234,8 +222,8 @@
                 {
                     <li>
                         <a class="dropdown-item" asp-action="ProductByCategoryId"
-                           asp-controller="Product" asp-route-id=@item.ID>
-                            @item.CategoryName
+                           asp-controller="Product" asp-route-id=@item.ID style="text-decoration: none !important; background-color: transparent; color: #000 !important; ">
+                            @item.CategoryName    (@Model.products_.Where(x=>x.Category.CategoryName==item.CategoryName).Count())
                         </a>
                     </li>
                 }

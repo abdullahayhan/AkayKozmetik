@@ -1,43 +1,43 @@
 ﻿@model (Product product, List<Category> categories)
-
-<h3 class="text-center">Ürün Güncelleme Sayfası</h3>
-<form method="post" asp-area="Management" asp-controller="Product" asp-action="Edit">
-    <input asp-for="product.ID" type="hidden" />
-    <div class="mb-3">
-        <label class="form-label" asp-for="product.ProductName">Ürün İsmi</label>
-        <input type="text" class="form-control" asp-for="product.ProductName" />
-    </div>
-    <div class="mb-3">
-        <label class="form-label" asp-for="product.SmallDescp">Ön Açıklaması</label>
-        <input type="text" class="form-control" asp-for="product.SmallDescp" />
-    </div>
-    <div class="mb-3">
-        <label class="form-label" asp-for="product.Description">Açıklaması</label>
-        <input type="text" class="form-control" asp-for="product.Description" />
-    </div>
-    <div class="mb-3">
-        <label class="form-label" asp-for="product.Price">Fiyat</label>
-        <input type="text" class="form-control" asp-for="product.Price" />
-    </div>
-    <div class="mb-3">
-        <label class="form-label" asp-for="product.ImageUrl">Fotoğraf Linki</label>
-        <input type="text" class="form-control" asp-for="product.ImageUrl" />
-    </div>
-    <div class="mb-3">
-        <label class="form-label" asp-for="product.ExpirationDate">Son Kullanım Tarihi</label>
-        <input type="date" class="form-control" asp-for="product.ExpirationDate" />
-    </div>
-    <div class="mb-3">
-        <label class="form-label" asp-for="product.Quantity">Miktarı</label>
-        <input type="text" class="form-control" asp-for="product.Quantity" />
-    </div>
-    <div class="mb-3">
-        <label class="form-label" asp-for="product.StockNumber">Stok Sayısı</label>
-        <input type="text" class="form-control" asp-for="product.StockNumber" />
-    </div>
-    <div class="mb-3">
-        <label class="form-label" asp-for="product.CategoryID">Kategori</label>
-        <select type="text" class="form-control" asp-for="product.CategoryID" asp-items="@(new SelectList(@Model.categories,"ID","CategoryName"))"></select>
-    </div>
-    <button type="submit" class="btn btn-primary">Güncelle</button>
-</form>
+   
+    <h3 class="text-center">Ürün Güncelleme Sayfası</h3>
+    <form method="post" asp-area="Management" asp-controller="Product" asp-action="Edit">
+        <input asp-for="product.ID" type="hidden" />
+        <div class="mb-3">
+            <label class="form-label" asp-for="product.ProductName">Ürün İsmi</label>
+            <input type="text" class="form-control" asp-for="product.ProductName" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="product.SmallDescp">Ön Açıklaması</label>
+            <input type="text" class="form-control" asp-for="product.SmallDescp" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="product.Description">Açıklaması</label>
+            <input type="text" class="form-control" asp-for="product.Description" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="product.Price">Fiyat</label>
+            <input type="text" class="form-control" asp-for="product.Price" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="product.ImageUrl">Fotoğraf Linki</label>
+            <input type="text" class="form-control" asp-for="product.ImageUrl" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="product.ExpirationDate">Son Kullanım Tarihi</label>
+            <input type="date" class="form-control" asp-for="product.ExpirationDate" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="product.Quantity">Miktarı</label>
+            <input type="text" class="form-control" asp-for="product.Quantity" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="product.StockNumber">Stok Sayısı</label>
+            <input type="text" class="form-control" asp-for="product.StockNumber" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="product.CategoryID">Kategori</label>
+            <select type="text" class="form-control" asp-for="product.CategoryID" asp-items="@(new SelectList(@Model.categories,"ID","CategoryName"))"></select>
+        </div>
+        <button type="submit" class="btn btn-primary">Güncelle</button>
+    </form>

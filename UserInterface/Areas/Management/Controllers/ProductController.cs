@@ -54,6 +54,6 @@ namespace UserInterface.Areas.Management.Controllers
             repoProduct.Delete(id);
             return RedirectToAction("GetList", "Product", new { area = "Management" });
         }
-       
+
     }
 }

@@ -52,9 +52,9 @@ namespace DAL.Migrations
                         new
                         {
                             ID = 1,
-                            CreatedDate = new DateTime(2022, 11, 9, 15, 14, 11, 776, DateTimeKind.Local).AddTicks(7748),
+                            CreatedDate = new DateTime(2022, 11, 13, 15, 24, 52, 373, DateTimeKind.Local).AddTicks(1382),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Password = "$2a$11$5dqQ8qs7O30q.AeUHPp6pO10ceA2y/puVXoBle771pWJSNdj8gPge",
+                            Password = "$2a$11$eQ2czv.L1SMSTPjLzokfreUqbx2iakujo8v7MeaelGMNmWf1nGei6",
                             Role = 1,
                             Status = 0,
                             UserName = "admin"

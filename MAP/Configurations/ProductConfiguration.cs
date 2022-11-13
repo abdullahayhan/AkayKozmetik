@@ -15,7 +15,6 @@ namespace MAP.Configurations
         {
             builder.HasOne(p => p.Category).WithMany(c => c.Products).HasForeignKey(p => p.CategoryID);
             builder.Property(x => x.ProductName).IsRequired();
-
         }
     }
 }

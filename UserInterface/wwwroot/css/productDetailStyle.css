@@ -1,0 +1,45 @@
+﻿
+.unf-p-variant-area .product-option-box{
+    border-top: 1px solid #eaebeb;
+    padding-top: 16px;
+}
+
+.lightBox.prop-opt-lb .sku-label, .product-option-box .sku-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #313335;
+    width: 100%;
+    float: none;
+    margin-bottom: 12px;
+}
+
+.lightBox.prop-opt-lb .sku-label-name, .product-option-box .sku-label-name {
+    font-weight: 700;
+}
+
+.lightBox.prop-opt-lb .sku-list, .product-option-box .sku-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: 155px;
+    overflow: auto;
+}
+
+.lightBox.prop-opt-lb .sku-list-item, .product-option-box .sku-list-item {
+    margin: 0 8px 8px 0;
+    padding: 8px 13px;
+    border-radius: 6px;
+    border: solid 1px #b0b0b0;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -.05px;
+    text-align: center;
+    color: #1f1f1f;
+    width: auto;
+    float: none;
+    cursor: pointer;
+    overflow: hidden;
+}

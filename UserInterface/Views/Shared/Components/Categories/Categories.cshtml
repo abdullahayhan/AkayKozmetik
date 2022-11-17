@@ -1,0 +1,10 @@
+﻿@model List<Category>
+
+<nav class="collapse position-relative navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
+    <div class="navbar-nav w-100 overflow-hidden" style="height: 410px;">
+        <a asp-controller="Home" asp-action="AllProduct" class="nav-item nav-link">Tüm Ürünler</a>
+        @foreach (Category item in Model)
+        {
+            <a asp-controller="Product" asp-action="ProductByCategoryId" asp-route-id=@item.ID class="nav-item nav-link">@item.CategoryName</a>}
+    </div>
+</nav>

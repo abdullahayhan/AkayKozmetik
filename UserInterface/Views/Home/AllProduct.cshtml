@@ -1,257 +1,104 @@
-﻿@model (List<Product> products, List<Category> categories, List<Product> products_)
+﻿@model (List<Category> categories,List<Product> products)
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5">
+        <!-- Shop Sidebar Start -->
+        <div class="col-lg-3 col-md-12">
+            <!-- Price Start -->
+            <div class="border-bottom mb-4 pb-4">
+                <h5 class="font-weight-semi-bold mb-4">Fiyata Göre Filtreleme</h5>
+                <form>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" checked id="price-all">
+                        <label class="custom-control-label" for="price-all">All Price</label>                      
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="price-1">
+                        <label class="custom-control-label" for="price-1">0 ₺ - 100 ₺</label>                       
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="price-2">
+                        <label class="custom-control-label" for="price-2">100 ₺ - 200 ₺</label>                      
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="price-3">
+                        <label class="custom-control-label" for="price-3">200 ₺ - 300 ₺</label>                       
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="price-4">
+                        <label class="custom-control-label" for="price-4">300 ₺ - 400 ₺</label>                      
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
+                        <input type="checkbox" class="custom-control-input" id="price-5">
+                        <label class="custom-control-label" for="price-5">400 ₺ - 500 ₺</label>
 
-<style>
-
-    .card-product-list, .card-product-grid {
-        margin-bottom: 0;
-    }
-
-    .card {
-        position: relative;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-inline-box;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        min-width: 0;
-        word-wrap: break-word;
-        background-color: #fff;
-        background-clip: border-box;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        border-radius: 0.10rem;
-        margin-top: 10px;
-    }
-
-    .card-product-grid:hover {
-        -webkit-box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
-        box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
-        -webkit-transition: .3s;
-        transition: .3s;
-    }
-
-    .card-product-grid .img-wrap {
-        border-radius: 0.2rem 0.2rem 0 0;
-        height: 250px;
-    }
-
-    .card .img-wrap {
-        overflow: hidden;
-    }
-
-    .card-lg .img-wrap {
-        height: 280px;
-    }
-
-    .card-product-grid .img-wrap {
-        border-radius: 0.2rem 0.2rem 0 0;
-        height: 250px;
-        padding: 16px;
-    }
-
-    [class*='card-product'] .img-wrap img {
-        height: 100%;
-        max-width: 100%;
-        width: auto;
-        display: inline-block;
-        -o-object-fit: cover;
-        object-fit: cover;
-    }
-
-    .img-wrap {
-        text-align: center;
-        display: block;
-    }
-
-    .card-product-grid .info-wrap {
-        overflow: hidden;
-        padding: 18px 20px;
-    }
-
-    [class*='card-product'] a.title {
-        color: #212529;
-        display: block;
-    }
-
-    .rating-stars {
-        display: inline-block;
-        vertical-align: middle;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        position: relative;
-        white-space: nowrap;
-        clear: both;
-    }
-
-        .rating-stars li.stars-active {
-            z-index: 2;
-            position: absolute;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-        }
-
-        .rating-stars li {
-            display: block;
-            text-overflow: clip;
-            white-space: nowrap;
-            z-index: 1;
-        }
-
-    .card-product-grid .bottom-wrap {
-        padding: 18px;
-        border-top: 1px solid #e4e4e4;
-    }
-
-    .btn {
-        display: inline-block;
-        font-weight: 600;
-        color: #343a40;
-        text-align: center;
-        vertical-align: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        background-color: transparent;
-        border: 1px solid transparent;
-        padding: 0.45rem 0.85rem;
-        font-size: 1rem;
-        line-height: 1.5;
-        border-radius: 0.2rem;
-    }
-
-    .btn-primary {
-        color: #fff;
-        background-color: #67971f;
-        border-color: #3167eb;
-    }
-
-    .fa {
-        color: #FF5722;
-    }
-
-
-    .col-lg-3 .btn.btn-primary {
-        width: 100%;
-        height: 43px;
-        box-shadow: none;
-        outline: none;
-        background-color: #67971f;
-        color: white;
-        font-weight: 800;
-        padding: 0px 15px;
-        line-height: 22px;
-        border: none;
-    }
-
-        .col-lg-3 .btn.btn-primary:focus {
-            outline: none;
-            box-shadow: none;
-        }
-
-    .col-lg-9 .btn.btn-secondary {
-        width: 100%;
-        height: 100% !important;
-        box-shadow: none;
-        outline: none;
-        background-color: transparent;
-        color: black;
-        font-weight: 800;
-        padding: 0px 15px;
-        line-height: 22px;
-        border: none;
-    }
-
-
-    .col-lg-9 .btn.btn-primary {
-        
-        border: none;
-        height: 100%;
-        width: 100px;
-    }
-
-        .col-lg-9 .btn.btn-primary:hover {
-            background-color: #aadf5a;
-        }
-
-
-
-    .fas.fa-phone {
-        width: 40px;
-        height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #67971f;
-    }
-
-    .p-green {
-        letter-spacing: 2px;
-        color: #67971f;
-        font-size: 14px;
-    }
-
-    .btn.btn-success {
-        color: white;
-        background-color: #67971f;
-        outline: none;
-        border: none;
-    }
-
-        .btn.btn-success:hover {
-            background-color: #aadf5a;
-        }
-</style>
-
-
-<div class="row" style="padding:30px;">
-    <div class="col-lg-3 mb-lg-0 mb-2" style="padding:10px">
-        <p>
-            <a class="btn btn-primary w-100 d-flex align-items-center justify-content-between"
-               data-bs-toggle="collapse" role="button" aria-expanded="true"
-               aria-controls="collapseExample" asp-action="AllProduct" asp-controller="Home">
-                <span class="ps-3">TÜM ÜRÜNLER</span>
-            </a>
-        </p>
-        <div class="collapse show border" id="collapseExample">
-            <ul class="list-unstyled">
-                @foreach (var item in Model.categories)
-                {
-                    <li>
-                        <a class="dropdown-item" asp-action="ProductByCategoryId"
-                           asp-controller="Product" asp-route-id=@item.ID style="text-decoration: none !important; background-color: transparent; color: #000 !important; ">
-                            @item.CategoryName    (@Model.products_.Where(x=>x.Category.CategoryName==item.CategoryName).Count())
-                        </a>
-                    </li>
-                }
-            </ul>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
-
-    <div class="col-lg-9 row">
-        @foreach (Product item in Model.products)
-        {
-            <div class="col-md-4" style="max-width:35%">
-                <figure class="card card-product-grid card-lg">
-                    <a asp-action="ProductDetail" asp-controller="Product" asp-route-id=@item.ID class="img-wrap" data-abc="true"><img src="@item.ImageUrl"></a>
-                    <figcaption class="info-wrap">
-                        <div class="row">
-                            <div class="col-md-8" style="flex: 0 50%">
-                                <a asp-action="ProductDetail" asp-controller="Product" asp-route-id=@item.ID class="title" data-abc="true">@item.ProductName - @item.Quantity</a>
+        <!-- Categories End -->
+        <!-- Shop Product Start -->
+        <div class="col-lg-9 col-md-12">
+            <div class="row pb-3">
+                <div class="col-12 pb-1">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <form action="">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Arama Yap">
+                                <div class="input-group-append">
+                                    <span class="input-group-text bg-transparent text-primary">
+                                        <i class="fa fa-search"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                @foreach (Product item in Model.products)
+                {
+            <a asp-action="ProductDetail" asp-controller="Product" asp-route-id=@item.ID>
+                <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img class="img-fluid w-100" src=@item.ImageUrl>
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 class="text-truncate mb-3">@item.ProductName</h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>@item.Price ₺</h6><h6 class="text-muted ml-2"><del>@{double old = item.Price + (item.Price % 30);} @old ₺</del></h6>
                             </div>
                         </div>
-                    </figcaption>
-                    <div class="bottom-wrap">
-                        <a asp-action="ProductDetail" asp-controller="Product" asp-route-id=@item.ID class="btn  btn-primary float-right" data-abc="true"> Ürüne Git </a>
-                        <div class="price-wrap">
-                            <span class="price h5">@item.Price ₺</span>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Ürüne Git</a>
+                            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Sepete Ekle</a>
                         </div>
                     </div>
-                </figure>
+                </div>
+            </a>
+                }
+
+                <div class="col-12 pb-1">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center mb-3">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Önceki</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Sonraki</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
-        }
+        </div>
+        <!-- Shop Product End -->
     </div>
-</div>
+    </div>

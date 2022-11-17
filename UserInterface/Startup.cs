@@ -32,8 +32,8 @@ namespace UserInterface
             services.AddScoped<IRepository<Category>, Repository<Category>>();
             services.AddControllersWithViews();
             services.AddDbContext<MyDbContext>(options=>options.UseSqlServer(configuration["ConnectionStrings:Mssql"]));
-
-
+            services.AddRazorPages();
+          
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(
                options => {
                    options.LoginPath = "/Home/LoginAsAdmin";

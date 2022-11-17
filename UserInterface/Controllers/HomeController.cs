@@ -24,14 +24,15 @@ namespace UserInterface.Controllers
         }
         public IActionResult Index()
         {
+            List<Product> products = repoProduct.GetProducts();
             List<Category> categories = repoCategory.GetActives();
-            return View(categories);
+            return View((categories,products));
         }
         public IActionResult AllProduct()
         {
             List<Category> categories = repoCategory.GetActives();
             List<Product> products = repoProduct.GetProducts();
-            return View((products, categories,products));
+            return View((categories,products));
         }
 
         public IActionResult Contact()
@@ -74,20 +75,6 @@ namespace UserInterface.Controllers
                 }
             }
             return View();
-        }
-
-
-        public IActionResult Search()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Search(string nameToFind)
-        {
-            List<Product> products = repoProduct.GetProducts()
-                .Where(x => x.ProductName.Contains(nameToFind) || x.Category.CategoryName.Contains(nameToFind)).ToList();
-            return View(products);
         }
     }
 }

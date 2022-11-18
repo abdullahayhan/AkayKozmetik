@@ -31,6 +31,11 @@ namespace UserInterface.Controllers
             List<Product> productsByCategory = repoProduct.GetProductByCategory(category.CategoryName,null);
             return View("~/Views/Home/AllProduct.cshtml", (categories, productsByCategory));
         }
-       
+        public IActionResult GetProductByPrice(int id)
+        {
+            List<Product> products = repoProduct.GetProductsByPrice(id);
+            List<Category> categories = repoCategory.GetActives();
+            return View("~/Views/Home/AllProduct.cshtml", (categories, products));
+        }
     }
 }

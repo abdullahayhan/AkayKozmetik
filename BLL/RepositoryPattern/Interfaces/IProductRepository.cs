@@ -11,5 +11,6 @@ namespace BLL.RepositoryPattern.Interfaces
     {
         List<Product> GetProducts();
         List<Product> GetProductByCategory(string name, string ProductName);
+        List<Product> GetProductsByPrice(int id);
     }
 }

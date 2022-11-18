@@ -31,5 +31,29 @@ namespace BLL.RepositoryPattern.Concrete
             }
             
         }
+
+        public List<Product> GetProductsByPrice(int id)
+        {
+            List<Product> products;
+            switch (id)
+            {
+                case (1):
+                    products = table.Where(x=>x.Price > 0 && x.Price <= 200).ToList();
+                    break;                 
+                case (2):                 
+                    products = table.Where(x=>x.Price > 200 && x.Price <= 400).ToList();
+                    break;                 
+                case (3):                  
+                    products = table.Where(x=>x.Price > 400 && x.Price <= 500).ToList();
+                    break;                 
+                case (4):                  
+                    products = table.Where(x=>x.Price > 500 ).ToList();
+                    break;      
+                default:        
+                    products = table.ToList();
+                    break;
+            }
+            return products;
+        }
     }
 }

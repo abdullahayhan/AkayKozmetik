@@ -1,7 +1,4 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@model (List<Category> categories, List<Product> products)
+﻿@model (List<Category> categories, List<Product> products)
 
 @section navbar {
     <div id="header-carousel" class="carousel slide" data-ride="carousel">
@@ -12,7 +9,7 @@
                     <div class="p-3" style="max-width: 700px;">
                         <h4 class="text-light text-uppercase font-weight-medium mb-3">İhtiyacınız Olan Her Şey</h4>
                         <h3 class="display-4 text-white font-weight-semi-bold mb-4">Uygun Fiyatlarla</h3>
-                        <a href="" class="btn btn-light py-2 px-3">Alışverişe Başla</a>
+                        <a asp-controller="Home" asp-action="AllProduct" class="btn btn-light py-2 px-3">Alışverişe Başla</a>
                     </div>
                 </div>
             </div>
@@ -22,7 +19,7 @@
                     <div class="p-3" style="max-width: 700px;">
                         <h4 class="text-light text-uppercase font-weight-medium mb-3">Kalitenin Adresi</h4>
                         <h3 class="display-4 text-white font-weight-semi-bold mb-4">Saç Boyaları Ve Daha Fazlası</h3>
-                        <a href="" class="btn btn-light py-2 px-3">Alışverişe Başla</a>
+                        <a asp-controller="Home" asp-action="AllProduct" class="btn btn-light py-2 px-3">Alışverişe Başla</a>
                     </div>
                 </div>
             </div>
@@ -76,7 +73,7 @@
         {
             <div class="col-lg-4 col-md-6 pb-1" style="flex:auto">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <a href="">
+                    <a asp-controller="Product" asp-action="ProductByCategoryId" asp-route-id=@item.ID>
                         <p class="cat-img position-relative overflow-hidden mb-3">
                             <img class="img-fluid" src=@item.ImageUrl>
                         </p>
@@ -93,21 +90,21 @@
     <div class="row px-xl-5">
         <div class="col-md-6 pb-4">
             <div class="position-relative bg-secondary text-center text-md-right text-white mb-2 py-5 px-5">
-                <img src="img/offer-1.png" alt="">
+                <img src="" alt="">
                 <div class="position-relative" style="z-index: 1;">
                     <h5 class="text-uppercase text-primary mb-3">Tüm Siparişlerinizde %20 İndirim</h5>
                     <h1 class="mb-4 font-weight-semi-bold">Yeni Sezon Ürünler</h1>
-                    <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Alışverişe Başla</a>
+                    <a asp-controller="Home" asp-action="AllProduct" class="btn btn-outline-primary py-md-2 px-md-3">Alışverişe Başla</a>
                 </div>
             </div>
         </div>
         <div class="col-md-6 pb-4">
             <div class="position-relative bg-secondary text-center text-md-left text-white mb-2 py-5 px-5">
-                <img src="img/offer-2.png" alt="">
+                <img src="" alt="">
                 <div class="position-relative" style="z-index: 1;">
                     <h5 class="text-uppercase text-primary mb-3">Tüm Siparişlerinizde %20 İndirim</h5>
                     <h1 class="mb-4 font-weight-semi-bold">Tüm Ürünlerimiz</h1>
-                    <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Alışverişe Başla</a>
+                    <a asp-controller="Home" asp-action="AllProduct" class="btn btn-outline-primary py-md-2 px-md-3">Alışverişe Başla</a>
                 </div>
             </div>
         </div>
@@ -134,7 +131,7 @@
                         </div>
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light border">
-                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Ürüne Git</a>
+                        <a asp-controller="Product" asp-action="ProductDetail" asp-route-id=@item.ID class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Ürüne Git</a>
                         <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Sepete Ekle</a>
                     </div>
                 </div>

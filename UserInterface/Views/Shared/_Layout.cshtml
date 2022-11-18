@@ -1,5 +1,4 @@
-﻿
-@{ 
+﻿@{ 
     var viewModel = (List<Category>)ViewBag.cats;
 }
 <head>
@@ -82,7 +81,6 @@
                         <div class="navbar-nav mr-auto py-0">
                             <a asp-action="Index" asp-controller="Home" class="nav-item nav-link active">Anasayfa</a>
                             <a asp-action="AllProduct" asp-controller="Home" class="nav-item nav-link">Alışveriş</a>
-                            <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu rounded-0 m-0">
@@ -90,7 +88,7 @@
                                     <a href="checkout.html" class="dropdown-item">Checkout</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                            <a asp-action="Contact" asp-controller="Home" class="nav-item nav-link">İletişim</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             <a asp-action="LoginAsAdmin" asp-controller="Home" class="nav-item nav-link">Login</a>
@@ -106,22 +104,22 @@
 
     <!-- Footer Start -->
     <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
-        <div class="row px-xl-5 pt-5" style="margin-right:-1705px">
+        <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
                 <a href="" class="text-decoration-none">
-                    <h1 class="mb-4 display-5 font-weight-semi-bold">Akay Kozmetik</h1>
+                    <h1 class="mb-4 display-5 font-weight-semi-bold text-center">Akay Kozmetik</h1>
                 </a>
-                <p>Güvenli alışverişin adresi. Haftanın her günü açık olan dükkanımızda siz değerli müşterilerimizi ağırlamaktan memnuniyet duyarız. Bizimle iletişim kurmak isterseniz iletişim bilgilerimize aşağıdan ulaşabilirsiniz. Instagram, Mail, Whatsapp Üzerinden Bizimle 7/24 İletişime Geçebilirseniz !</p>
+                <p class="text-center">Güvenli alışverişin adresi. Haftanın her günü açık olan dükkanımızda siz değerli müşterilerimizi ağırlamaktan memnuniyet duyarız. Bizimle iletişim kurmak isterseniz iletişim bilgilerimize aşağıdan ulaşabilirsiniz. Instagram, Mail, Whatsapp Üzerinden Bizimle 7/24 İletişime Geçebilirseniz!</p>
                 <p class="mb-2">
-                    <i class="fa fa-map-marker-alt text-primary mr-3"></i>Papuççular Mh. Bostancı Sok. No:29
+                    <i class="fa fa-map-marker-alt text-primary mr-3 text-center"></i>Papuççular Mh. Bostancı Sok. No:29
                     ADAPAZARI/SAKARYA
                 </p>
-                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>akaykozmetik@gmail.com</p>
+                <p class="mb-2 text-center"><i class="fa fa-envelope text-primary mr-3"></i>akaykozmetik@gmail.com</p>
 
-                <p class="mb-2">
+                <p class="mb-2 text-center">
                     <i class="fa fa-phone-alt text-primary mr-3"></i>0535 106 4720
                 </p>
-                <p class="mb-2">
+                <p class="mb-2 text-center">
                     <i class="fab fa-whatsapp text-primary mr-3"></i>
                     <a href="https://wa.me/905351064720" class="mb-2">
                         Whatsapp Üzerinden İletişim Kurmak İçin Tıklayınız
@@ -133,9 +131,9 @@
                     <div class="col-md-4 mb-5">
                         <h5 class="font-weight-bold text-dark mb-4">SAYFALAR</h5>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-dark mb-2" href="index.html"><i class="fa fa-angle-right mr-2"></i>Anasayfa</a>
-                            <a class="text-dark mb-2" href="shop.html"><i class="fa fa-angle-right mr-2"></i>Ürünler</a>
-                            <a class="text-dark" href="contact.html"><i class="fa fa-angle-right mr-2"></i>İletişim</a>
+                            <a class="text-dark mb-2" asp-action="Index" asp-controller="Home"><i class="fa fa-angle-right mr-2"></i>Anasayfa</a>
+                            <a class="text-dark mb-2"asp-action="AllProduct" asp-controller="Home"><i class="fa fa-angle-right mr-2"></i>Alışveriş</a>
+                            <a class="text-dark" asp-action="Contact" asp-controller="Home"><i class="fa fa-angle-right mr-2"></i>İletişim</a>
                         </div>
                     </div>
                 </div>
